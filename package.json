@@ -1,21 +1,31 @@
 {
   "name": "new-model-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "a rebuilding of what I have learned",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "",
+  "author": "jason wolfe",
+  "repository": "https://github.com/wulfey/jw-overhold-app.git",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
+    "body-parser": "^1.18.0",
+    "concurrently": "^3.5.0",
+    "cookie-session": "^1.3.1",
+    "create-react-app": "^1.4.0",
     "express": "^4.15.4",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.11.3",
     "mongoose": "^4.11.11",
     "nodemon": "^1.12.0",
-    "react-redux": "^5.0.6",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2"
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
+    "stripe": "^4.25.0"
   }
 }
