@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 class LinkList extends Component {
   render() {
@@ -29,6 +29,10 @@ class LinkList extends Component {
         </Link>
         <Link className="btn btn-danger" to="/lyrical">
           Lyrical App
+        </Link>
+
+        <Link className="btn btn-danger" to="/bitpump/new">
+          Bitpump App
         </Link>
       </div>
     );

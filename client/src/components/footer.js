@@ -1,62 +1,40 @@
 import React from 'react';
-import { Component} from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 
-
-// more presentation component 
-const Footer = ({
-  store
-}) => {
+// more presentation component
+const Footer = ({ store }) => {
   return (
     <p>
-      Show:
-        {' '}
-        <FilterLink
-          store={store}
-          filter='SHOW_ALL'
-
-        >
-          All 
-        </FilterLink>
-
-        {' '}
-        <FilterLink
-          store={store}
-          filter='SHOW_ACTIVE'
-
-        >
-          Active 
-        </FilterLink>
-
-        {' '}
-        <FilterLink
-          store={store}
-          filter='SHOW_COMPLETED'
-
-        >
-          Completed 
-        </FilterLink>
+      Show:{' '}
+      <FilterLink store={store} filter="SHOW_ALL">
+        All
+      </FilterLink>{' '}
+      <FilterLink store={store} filter="SHOW_ACTIVE">
+        Active
+      </FilterLink>{' '}
+      <FilterLink store={store} filter="SHOW_COMPLETED">
+        Completed
+      </FilterLink>
     </p>
-  )
-  
-}
+  );
+};
 
 // container, provides the data and the behavior
 class FilterLink extends Component {
-  componentDidMount(){
+  componentDidMount() {
     // const {store} = this.context;
     // console.log("INDIXSE filterlink");
 
-    this.unsubscribe = this.props.store.subscribe(() =>
-       this.forceUpdate()
-    )
+    this.unsubscribe = this.props.store.subscribe(() => this.forceUpdate());
     // console.log(this.context);
   }
 
-  componentWillUnMount(){
+  componentWillUnMount() {
     this.unsubscribe();
   }
 
-  render(){
+  render() {
     // console.log("INDIXSE filterlink");
     // console.log(this.props);
     // console.log(this.contex);
@@ -70,54 +48,43 @@ class FilterLink extends Component {
     // console.log(`this is STATE for ${props.filter}:`);
     // console.log(state);
     // console.log(state.visibilityFilter);
-    return(
+    return (
       <Link
-        active={
-          props.filter === state.visibilityFilter
-        }
+        active={props.filter === state.visibilityFilter}
         onClick={() =>
           this.props.store.dispatch({
             type: 'SET_VISIBILITY_FILTER',
             filter: props.filter
-          })
-        }
+          })}
       >
         {props.children}
       </Link>
-
-    )
+    );
   }
 }
 
 FilterLink.contextTypes = {
-  store: React.PropTypes.object
-}
+  store: PropTypes.object
+};
 
-
-// only the appearance 
-const Link = ({
-  active,
-  children,
-  onClick
-}) => {
+// only the appearance
+const Link = ({ active, children, onClick }) => {
   // the span there is an alternative to an <a href> it looks clean</a>
-  if (active){ 
-    return <span>{children}</span>
+  if (active) {
+    return <span>{children}</span>;
   }
 
   return (
-    <a href='TodoDisplay'
-      onClick= {e => {
+    <a
+      href="TodoDisplay"
+      onClick={e => {
         e.preventDefault();
         onClick();
       }}
     >
       {children}
     </a>
-  )
-}
-
-
-  
+  );
+};
 
 export default Footer;

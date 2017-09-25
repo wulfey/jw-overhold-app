@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import gql from "graphql-tag";
-import { graphql } from "react-apollo";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+// import gql from "graphql-tag";
+import { graphql } from 'react-apollo';
+import { Link } from 'react-router-dom';
 // import { hashHistory } from "react-router-dom";
-import LyricCreate from "./LyricCreate";
-import LyricList from "./LyricList";
+import LyricCreate from './LyricCreate';
+import LyricList from './LyricList';
 
-import querySong from "../queries/querySong";
+import querySong from '../queries/querySong';
 
 class SongDetail extends Component {
   //   constructor(props) {
@@ -20,7 +20,7 @@ class SongDetail extends Component {
       return <div />;
     }
     const song = this.props.data.song;
-    console.log("This is song:");
+    console.log('This is song:');
     console.log(song);
     return (
       <div>

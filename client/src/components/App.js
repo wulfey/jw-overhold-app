@@ -1,34 +1,35 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Header from "./Header";
-import Landing from "./landing";
-import Dashboard from "./dashboard";
-import LinkList from "./link_list";
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Header from './Header';
+import Landing from './landing';
+// import Dashboard from './dashboard';
+import LinkList from './link_list';
 // import fetchUserV1 from "../actions/index";
-import { connect } from "react-redux";
-import ApolloClient, { createNetworkInterface } from "apollo-client";
-import { ApolloProvider } from "react-apollo";
-import * as actions from "../actions/index";
-import PostsIndex from "./posts_index";
-import PostsNew from "./posts_new";
-import PostShow from "./post_show";
+import { connect } from 'react-redux';
+import ApolloClient, { createNetworkInterface } from 'apollo-client';
+import { ApolloProvider } from 'react-apollo';
+import * as actions from '../actions/index';
+import PostsIndex from './posts_index';
+import PostsNew from './posts_new';
+import PostShow from './post_show';
 // import HomePage from "./homePage";
-import BookIndex from "./book_index";
-import WeatherIndex from "./weather_index";
-import TicTac from "./tictac";
-import Todo from "./todo_index";
-import VideoApp from "./video_index";
-import LyricalApp from "./LyricalApp";
-import SongCreate from "./SongCreate";
-import SongDetail from "./SongDetail";
-import SongList from "./SongList";
-
-const SurveyNew = () => <h2>Survey New</h2>;
+import BookIndex from './book_index';
+import WeatherIndex from './weather_index';
+import TicTac from './tictac';
+import Todo from './todo_index';
+import VideoApp from './video_index';
+import LyricalApp from './LyricalApp';
+import SongCreate from './SongCreate';
+import SongDetail from './SongDetail';
+import SongList from './SongList';
+// import BitpumpApp from './pumpCode/BitpumpApp';
+// import BitStreamForm from './pumpCode/BitStreamForm';
+import BitStreamNew from './pumpCode/BitStreamNew';
 
 const networkInterface = createNetworkInterface({
-  uri: "/graphql",
+  uri: '/graphql',
   opts: {
-    credentials: "same-origin"
+    credentials: 'same-origin'
   }
 });
 
@@ -45,6 +46,9 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUserV2();
   }
+
+  // <Route path="/surveys/new" component={SurveyNew} />
+  // <Route path="/surveys" component={Dashboard} />
 
   render() {
     return (
@@ -63,12 +67,12 @@ class App extends Component {
                 <Route path="/posts/new" component={PostsNew} />
                 <Route path={`/posts/:id`} component={PostShow} />
                 <Route path="/posts" component={PostsIndex} />
-                <Route path="/surveys/new" component={SurveyNew} />
-                <Route path="/surveys" component={Dashboard} />
                 <Route path="/lyrical/songs/new" component={SongCreate} />
                 <Route path="/lyrical/songs/:id" component={SongDetail} />
                 <Route path="/lyrical/songlist" component={SongList} />
                 <Route path="/lyrical" component={LyricalApp} />
+                <Route path="/bitpump/new" component={BitStreamNew} />
+                
                 <Route path="/" component={Landing} />
               </Switch>
             </div>

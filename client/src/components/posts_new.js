@@ -7,6 +7,8 @@ import { connect } from "react-redux";
 import { createPost } from "../actions/index";
 
 class PostsNew extends Component {
+  
+  
   renderField(field) {
     // const { meta: { touched, error} } = field;
     // destructuring -- you can pull stuff off of these long ass JS chains

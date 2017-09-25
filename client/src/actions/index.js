@@ -1,30 +1,39 @@
-import axios from "axios";
-import { FETCH_USER } from "./types";
-import { WEATHER_API_KEY } from "./types";
-import { WEATHER_ROOT_URL } from "./types";
-import { FETCH_WEATHER } from "./types";
-
-import { FETCH_POSTS } from "./types";
-import { CREATE_POST } from "./types";
-import { DELETE_POST } from "./types";
-import { GET_POST } from "./types";
-import { POSTS_ROOT_URL } from "./types";
-import { POSTS_API_KEY } from "./types";
+import axios from 'axios';
+import { FETCH_USER } from './types';
+import { WEATHER_API_KEY } from './types';
+import { WEATHER_ROOT_URL } from './types';
+import { FETCH_WEATHER } from './types';
+import { QUERY_BITTREX } from './types';
+import { FETCH_POSTS } from './types';
+import { CREATE_POST } from './types';
+import { DELETE_POST } from './types';
+import { GET_POST } from './types';
+import { POSTS_ROOT_URL } from './types';
+import { POSTS_API_KEY } from './types';
 
 // v2 of THUNK action creator
 // this is the best format for async request actions that aren't just fancy
 // if and else things
 export const fetchUserV2 = () => async dispatch => {
-  const res = await axios.get("/api/current_user");
+  const res = await axios.get('/api/current_user');
   dispatch({
     type: FETCH_USER,
     payload: res.data
   });
 };
 
+export const queryBittrex = () => async dispatch => {
+  // console.log(' ---- in the query action');
+  const res = await axios.get('/api/markets');
+  dispatch({
+    type: QUERY_BITTREX,
+    payload: res.data
+  });
+};
+
 // can reuse the same dispatch because we are just using the user
 export const handleToken = token => async dispatch => {
-  const res = await axios.post("/api/stripepayment", token);
+  const res = await axios.post('/api/stripepayment', token);
   dispatch({
     type: FETCH_USER,
     payload: res.data
@@ -36,7 +45,7 @@ export function fetchWeather(city) {
 
   // this request is a promise that is passed in as the payload
   const request = axios.get(url);
-  console.log("inside the fetchWeather action");
+  console.log('inside the fetchWeather action');
   console.log(request);
 
   return {
@@ -52,7 +61,7 @@ export const fetchUserV1 = () => {
   // this will then be bounced to the reduces
   // this is needed because we don't know when this will be gotten ASYNC
   return function(dispatch) {
-    axios.get("/api/current_user").then(res =>
+    axios.get('/api/current_user').then(res =>
       dispatch({
         type: FETCH_USER,
         payload: res
@@ -122,9 +131,9 @@ export function createPost(values, callback) {
 
 export function selectBook(book) {
   // selectBOok should be an action creator that returns a POJO, simple one preferred
-  console.log("Book has been sleected:", book.title);
+  console.log('Book has been sleected:', book.title);
   return {
-    type: "BOOK_SELECTED",
+    type: 'BOOK_SELECTED',
     payload: book
   };
 }
