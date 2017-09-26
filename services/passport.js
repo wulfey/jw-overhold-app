@@ -26,16 +26,27 @@ passport.use(
       callbackURL: '/auth/google/callback',
       proxy: true
     },
-    async function(accessToken, refreshToken, profile, done) {
-      const existingUser = await User.findOne({ googleId: profile.id });
+    function(accessToken, refreshToken, profile, done) {
+      User.findOne({ googleId: profile.id }).then(existingUser => {
+        if (existingUser) {
+          return done(null, existingUser);
+        }
 
-      if (existingUser) {
-        return done(null, existingUser);
-      }
+        const user = new User({ googleId: profile.id }).save();
 
-      const user = await new User({ googleId: profile.id }).save();
-      done(null, user);
+        done(null, user);
+      });
     }
+    // async function(accessToken, refreshToken, profile, done) {
+    //   const existingUser = await User.findOne({ googleId: profile.id });
+
+    //   if (existingUser) {
+    //     return done(null, existingUser);
+    //   }
+
+    //   const user = await new User({ googleId: profile.id }).save();
+    //   done(null, user);
+    // }
   )
 );
 // User.findOne({ googleId: profile.id }).then(existingUser => {
