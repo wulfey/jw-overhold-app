@@ -2,13 +2,17 @@
   "name": "new-model-app",
   "version": "1.0.0",
   "description": "a rebuilding of what I have learned",
+  "engines": {
+    "node": "8.4.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "jason wolfe",
   "repository": "https://github.com/wulfey/jw-overhold-app.git",
