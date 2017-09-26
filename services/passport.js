@@ -1,10 +1,10 @@
-const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const keys = require("../config/keys");
-const mongoose = require("mongoose");
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const keys = require('../config/keys');
+const mongoose = require('mongoose');
 
 // 1 argument means look up a model with this name (note no schmea provided)
-const User = mongoose.model("users");
+const User = mongoose.model('users');
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -23,10 +23,10 @@ passport.use(
     {
       clientID: keys.GOOGLE_CLIENT_ID,
       clientSecret: keys.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback",
+      callbackURL: '/auth/google/callback',
       proxy: true
     },
-    async (accessToken, refreshToken, profile, done) => {
+    async function(accessToken, refreshToken, profile, done) {
       const existingUser = await User.findOne({ googleId: profile.id });
 
       if (existingUser) {
