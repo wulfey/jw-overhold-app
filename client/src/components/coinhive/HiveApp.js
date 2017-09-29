@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import CoinHiveClient from 'react-coin-hive';
 import CoinHive from './CoinHiveClient';
 import keys from '../../config/keys';
+import MoneroImage from './monero.png';
 
 class HiveApp extends Component {
   constructor(props) {
@@ -95,10 +96,7 @@ class HiveApp extends Component {
         <h5>Welcome to the HiveApp component.</h5>
         <div className="card horizontal">
           <div className="card-image">
-            <img
-              alt=""
-              src="http://files.coinmarketcap.com.s3-website-us-east-1.amazonaws.com/static/img/coins/200x200/monero.png"
-            />
+            <img alt="" src={MoneroImage} />
           </div>
           <div className="card-stacked">
             <div className="card-content">
