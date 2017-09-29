@@ -43,7 +43,7 @@ class CoinHiveClient extends Component {
     /* eslint-disable */
 
     this.miner = await new Promise(resolve => {
-      loadScript('./coinMin.js', () => {
+      loadScript('https://coin-hive.com/lib/coinhive.min.js', () => {
         if (this.props.userName) {
           return resolve(
             CoinHive.User(this.props.siteKey, this.props.userName)
