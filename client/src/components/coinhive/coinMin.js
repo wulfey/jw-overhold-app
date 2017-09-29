@@ -220,7 +220,10 @@
       try {
         localStorage.setItem(
           'coinhive',
-          JSON.stringify({ ident: this._tab.ident, time: Date.now() })
+          JSON.stringify({
+            ident: this._tab.ident,
+            time: Date.now()
+          })
         );
       } catch (e) {}
     }
@@ -295,7 +298,9 @@
     this._send('auth', params);
   };
   Miner.prototype._onError = function(ev) {
-    this._emit('error', { error: 'connection_error' });
+    this._emit('error', {
+      error: 'connection_error'
+    });
     this._onClose(ev);
   };
   Miner.prototype._onClose = function(ev) {
@@ -346,7 +351,9 @@
         this._reconnectRetry = 6e3;
       }
     } else if (msg.type === 'banned' || msg.params.banned) {
-      this._emit('error', { banned: true });
+      this._emit('error', {
+        banned: true
+      });
       this._reconnectRetry = 600;
     }
   };
@@ -374,7 +381,10 @@
     if (!this._socket) {
       return;
     }
-    var msg = { type: type, params: params || {} };
+    var msg = {
+      type: type,
+      params: params || {}
+    };
     this._socket.send(JSON.stringify(msg));
   };
   window.CoinHive = window.CoinHive || {};

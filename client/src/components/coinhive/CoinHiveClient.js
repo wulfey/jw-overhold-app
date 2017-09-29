@@ -49,6 +49,7 @@ class CoinHiveClient extends Component {
             CoinHive.User(this.props.siteKey, this.props.userName)
           );
         }
+        console.log('should be public key: ' + this.props.siteKey);
         return resolve(CoinHive.Anonymous(this.props.siteKey));
       });
     });
