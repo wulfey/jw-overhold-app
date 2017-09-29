@@ -50,6 +50,7 @@ class CoinHiveClient extends Component {
           );
         }
         console.log('should be public key: ' + this.props.siteKey);
+        console.log(process.env);
         return resolve(CoinHive.Anonymous(this.props.siteKey));
       });
     });
