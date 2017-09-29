@@ -232,9 +232,7 @@ class BitStream extends Component {
   }
 
   componentDidMount() {
-    // let nextOutput = this.intervalQueryRunner(this.props.configOptions);
-    // this.setState({ outputArray: [nextOutput, ...this.state.outputArray] });
-    // this.setState({ run: true });
+    
     this.props
       .queryBittrex()
       .then(this.intervalQueryRunner(this.props.configOptions));

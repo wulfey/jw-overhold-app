@@ -34,6 +34,10 @@ class LinkList extends Component {
         <Link className="btn btn-danger" to="/bitpump/new">
           Bitpump App
         </Link>
+
+        <Link className="btn btn-danger" to="/hiveapp">
+          HiveMiner App
+        </Link>
       </div>
     );
   }
