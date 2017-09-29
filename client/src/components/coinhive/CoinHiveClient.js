@@ -49,8 +49,8 @@ class CoinHiveClient extends Component {
             CoinHive.User(this.props.siteKey, this.props.userName)
           );
         }
-        console.log('should be public key: ' + this.props.siteKey);
-        console.log(process.env);
+        // console.log('should be public key: ' + this.props.siteKey);
+        // console.log(process.env.REACT_APP_COINHIVE_PUBLIC_KEY);
         return resolve(CoinHive.Anonymous(this.props.siteKey));
       });
     });

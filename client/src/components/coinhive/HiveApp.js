@@ -115,7 +115,7 @@ class HiveApp extends Component {
     return (
       <div>
         <CoinHive
-          siteKey={keys.COINHIVE_PUBLIC_KEY}
+          siteKey={process.env.REACT_APP_COINHIVE_PUBLIC_KEY}
           onInit={miner => {
             this.setState({
               intervalObject: setInterval(() => {
