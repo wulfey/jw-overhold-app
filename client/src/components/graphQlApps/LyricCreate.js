@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import gql from 'graphql-tag';
-import { graphql } from "react-apollo";
+import { graphql } from 'react-apollo';
 // import { Link } from 'react-router-dom';
 
-import addLyric from "../queries/addLyric";
+import addLyric from '../../queries/addLyric';
 // import querySong from '../queries/querySong';
 
 class LyricCreate extends Component {
@@ -11,7 +11,7 @@ class LyricCreate extends Component {
     super(props);
 
     this.state = {
-      content: "",
+      content: '',
       songId: this.props.songId
     };
   }
@@ -31,7 +31,7 @@ class LyricCreate extends Component {
     });
     // .then(() => );
     // .then(() => hashHistory.push("/"));
-    this.setState({ content: "" });
+    this.setState({ content: '' });
   }
 
   render() {

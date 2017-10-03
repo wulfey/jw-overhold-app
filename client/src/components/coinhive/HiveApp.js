@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 // import CoinHiveClient from 'react-coin-hive';
 import CoinHive from './CoinHiveClient';
-import keys from '../../config/keys';
+// import keys from '../../config/keys';
 import MoneroImage from './monero.png';
+// import loadScript from 'load-script';
+// import ReactHtmlParser from 'react-html-parser';
+import Chart from '../chart';
 
 class HiveApp extends Component {
   constructor(props) {
@@ -13,8 +16,11 @@ class HiveApp extends Component {
       running: null,
       timeout: 3000,
       miner: null,
-      lastHash: 0,
-      totalHashes: 0
+      hashesPerSecond: 0,
+      threads: 0,
+      throttle: 0,
+      totalHashes: 0,
+      hashArray: [0]
     };
   }
 
@@ -101,10 +107,31 @@ class HiveApp extends Component {
           <div className="card-stacked">
             <div className="card-content">
               <div>{this.conditionalRenders()}</div>
-              <p>Last Hash: {this.state.lastHash}</p>
-              <p>Total Hashes: {this.state.totalHashes}</p>
+              <ul>
+                <li>Hashes Per Second: {this.state.hashesPerSecond}</li>
+                <li>Total Hashes: {this.state.totalHashes}</li>
+                <li>Threads in use: {this.state.threads}</li>
+                <li>Current Throttle Percentage: {this.state.throttle}%</li>
+              </ul>
+              <div>
+                <Chart
+                  data={this.state.hashArray}
+                  color="blue"
+                  units="average hashes/second"
+                />
+              </div>
             </div>
-            <div className="card-action">{this.startAndStopButtons()}</div>
+            <div className="card-action">
+              {this.startAndStopButtons()}
+              <button
+                className="btn waves-effect waves-light"
+                onClick={() => {
+                  this.setstate({ hashArray: [0] });
+                }}
+              >
+                Clear History
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -119,10 +146,15 @@ class HiveApp extends Component {
           onInit={miner => {
             this.setState({
               intervalObject: setInterval(() => {
-                let lastHash = miner.getHashesPerSecond();
-                let totalHashes = miner.getTotalHashes();
-                this.setState({ lastHash, totalHashes });
-              }, 2000)
+                let hps = miner.getHashesPerSecond();
+                this.setState({
+                  hashesPerSecond: hps,
+                  totalHashes: miner.getTotalHashes(),
+                  threads: miner.getNumThreads(),
+                  throttle: miner.getThrottle(),
+                  hashArray: [...this.state.hashArray, hps]
+                });
+              }, 1000)
             });
             this.setState({ miner });
           }}

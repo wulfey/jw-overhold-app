@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 // import {bindActionCreators} from 'redux';
-import { fetchPosts } from "../actions/index";
-import _ from "lodash";
-import { Link } from "react-router-dom";
+import { fetchPosts } from '../../actions/index';
+import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
 class PostsIndex extends Component {
   // this is a special function for React

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import gql from 'graphql-tag';
-import { graphql, compose } from "react-apollo";
-import { Link } from "react-router-dom";
-import fetchSongs from "../queries/fetchSongs";
-import deleteSong from "../queries/deleteSong";
+import { graphql, compose } from 'react-apollo';
+import { Link } from 'react-router-dom';
+import fetchSongs from '../../queries/fetchSongs';
+import deleteSong from '../../queries/deleteSong';
 // import { hashHistory } from 'react-router';
 
 // ID data required by component -- we need SongTitle

@@ -1,11 +1,13 @@
-import React from "react";
+import React from 'react';
 
 const Landing = () => {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h3>Emails and Surveys App</h3>
-      <p> Collect feedback from your users. </p>
-      <p> Please login to access survey applications. </p>
+    <div style={{ textAlign: 'center' }}>
+      <h3>Landing Page</h3>
+      <p>
+        As I work on projects they will be integrated into this overholding app.
+      </p>
+      <p>The tabs above correspond to projects and project groups.</p>
     </div>
   );
 };

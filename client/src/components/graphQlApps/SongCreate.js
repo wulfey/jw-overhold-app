@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import gql from "graphql-tag";
-import { graphql } from "react-apollo";
-import { Link, Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
+import { Link, Redirect } from 'react-router-dom';
 // import { hashHistory } from "react-router-dom";
 
-import fetchSongs from "../queries/fetchSongs";
+import fetchSongs from '../../queries/fetchSongs';
 
 class SongCreate extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class SongCreate extends Component {
 
     this.state = {
       redirect: false,
-      title: ""
+      title: ''
     };
   }
 

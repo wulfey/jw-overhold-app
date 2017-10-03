@@ -19,7 +19,7 @@ import AddTodo from './addTodo';
 
 // reducers
 // import counter from '../reducers/counter_reducer';
-import reducers from '../reducers/index';
+import reducers from '../../reducers/index';
 
 // import { Provider } from "react-redux";
 // import  deepFreeze from 'deep-freeze';

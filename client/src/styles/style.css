@@ -218,3 +218,7 @@ td:first-of-type > div {
 .video-detail .details:hover {
   background-color: #dee;
 }
+
+.btn {
+  margin: 2px;
+}

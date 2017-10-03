@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 // import {bindActionCreators} from 'redux';
-import { getPost, deletePost } from "../actions/index";
+import { getPost, deletePost } from '../../actions/index';
 // import _ from 'lodash';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 class PostShow extends Component {
   // this is a special function for React
@@ -44,7 +44,7 @@ class PostShow extends Component {
   onDeleteClick() {
     const id = this.props.match.params.id;
     this.props.deletePost(id, () => {
-      this.props.history.push("/posts");
+      this.props.history.push('/posts');
     });
   }
 

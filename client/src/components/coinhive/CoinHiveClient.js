@@ -43,14 +43,14 @@ class CoinHiveClient extends Component {
     /* eslint-disable */
 
     this.miner = await new Promise(resolve => {
-      loadScript('https://coin-hive.com/lib/coinhive.min.js', () => {
+      loadScript('https://coinhive.com/lib/coinhive.min.js', () => {
         if (this.props.userName) {
           return resolve(
             CoinHive.User(this.props.siteKey, this.props.userName)
           );
         }
         // console.log('should be public key: ' + this.props.siteKey);
-        // console.log(process.env.REACT_APP_COINHIVE_PUBLIC_KEY);
+        console.log(process.env);
         return resolve(CoinHive.Anonymous(this.props.siteKey));
       });
     });

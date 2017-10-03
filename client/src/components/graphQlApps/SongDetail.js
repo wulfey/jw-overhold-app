@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import LyricCreate from './LyricCreate';
 import LyricList from './LyricList';
 
-import querySong from '../queries/querySong';
+import querySong from '../../queries/querySong';
 
 class SongDetail extends Component {
   //   constructor(props) {

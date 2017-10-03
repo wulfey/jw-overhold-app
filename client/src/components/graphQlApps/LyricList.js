@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import gql from 'graphql-tag';
-import { graphql } from "react-apollo";
+import { graphql } from 'react-apollo';
 // import { Link } from 'react-router';
-import likeLyric from "../queries/thumbsUp";
+import likeLyric from '../../queries/thumbsUp';
 
 class LyricList extends Component {
   // constructor(props) {
@@ -19,10 +19,10 @@ class LyricList extends Component {
     this.props.mutate({
       variables: { id },
       optimisticReponse: {
-        __typename: "Mutation",
+        __typename: 'Mutation',
         likeLyric: {
           id: id,
-          __typename: "LyricType",
+          __typename: 'LyricType',
           likes: likes + 1
         }
       }

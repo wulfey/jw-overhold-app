@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import StripePayments from "./StripePayments";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import StripePayments from './StripePayments';
 // import * as actions from "../actions";
 
 class Header extends Component {
@@ -31,7 +31,7 @@ class Header extends Component {
           <li key="1">
             <StripePayments />
           </li>,
-          <li style={{ margin: "0px 10px" }} key="2">
+          <li style={{ margin: '0px 10px' }} key="2">
             Credits: {this.props.auth.credits}
           </li>,
           <li key="3">
@@ -46,12 +46,12 @@ class Header extends Component {
     // console.log(this.props);
     return (
       <nav>
-        <div className="nav-wrapper">
+        <div className="nav-wrapper " style={{ backgroundColor: '#2e099e' }}>
           <Link
-            to={this.props.auth ? "/surveys" : "/"}
+            to={this.props.auth ? '/surveys' : '/'}
             className="left brand-logo"
           >
-            Emaily
+            JW Overhold
           </Link>
           <ul className="right hide-on-med-and-down">
             <li>
