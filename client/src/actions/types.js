@@ -12,4 +12,6 @@ export const GET_POST = 'get_post';
 export const POSTS_ROOT_URL = 'http://reduxblog.herokuapp.com/api';
 export const POSTS_API_KEY = '?key=PAPERCLIP8888888';
 
+export const FETCH_SURVEYS = 'fetch_surveys';
+
 export const QUERY_BITTREX = 'query_bittrex';

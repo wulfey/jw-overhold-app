@@ -51,6 +51,7 @@
     "redux-thunk": "^2.2.0",
     "request": "^2.82.0",
     "request-promise": "^4.2.1",
+    "sendgrid": "^5.2.3",
     "simple-load-script": "^1.0.2",
     "youtube-api-search": "0.0.5"
   },

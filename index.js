@@ -12,7 +12,7 @@ const schema = require('./schema/schema');
 
 //models
 require('./models/User');
-// require("./models/Survey");
+require('./models/Survey');
 
 //services
 require('./services/passport');
@@ -54,6 +54,7 @@ require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 require('./routes/marketRoutes')(app);
 require('./routes/testRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets

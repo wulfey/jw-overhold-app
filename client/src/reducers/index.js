@@ -8,6 +8,7 @@ import { reducer as formReducer } from 'redux-form';
 import TodoReducer from './todo_reducer';
 import visibilityFilter from './visibilityFilter_reducer';
 import queryReducer from './query_reducer';
+import surveysReducer from './surveysReducer';
 
 // import { reducer as formReducer } from 'redux-form';
 
@@ -20,5 +21,6 @@ export default combineReducers({
   form: formReducer,
   todos: TodoReducer,
   queryResults: queryReducer,
-  visibilityFilter: visibilityFilter
+  visibilityFilter: visibilityFilter,
+  surveys: surveysReducer
 });

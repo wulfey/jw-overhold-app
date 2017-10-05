@@ -10,12 +10,35 @@ import { DELETE_POST } from './types';
 import { GET_POST } from './types';
 import { POSTS_ROOT_URL } from './types';
 import { POSTS_API_KEY } from './types';
+import { FETCH_SURVEYS } from './types';
 
 // v2 of THUNK action creator
 // this is the best format for async request actions that aren't just fancy
 // if and else things
 export const fetchUserV2 = () => async dispatch => {
   const res = await axios.get('/api/current_user');
+  dispatch({
+    type: FETCH_USER,
+    payload: res.data
+  });
+};
+
+// get the surveys
+export const fetchSurveys = () => async dispatch => {
+  const res = await axios.get('/api/surveys');
+  dispatch({
+    type: FETCH_SURVEYS,
+    payload: res.data
+  });
+};
+
+export const submitSurvey = (values, history) => async dispatch => {
+  console.log('Dispatching survey action with:');
+  console.log(values);
+  // return { type: 'submit_survey' };
+
+  const res = await axios.post('/api/surveys', values);
+  history.push('/surveys');
   dispatch({
     type: FETCH_USER,
     payload: res.data

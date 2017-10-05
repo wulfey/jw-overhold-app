@@ -26,6 +26,8 @@ import SongList from './graphQlApps/SongList';
 // import BitStreamForm from './pumpCode/BitStreamForm';
 import BitStreamNew from './pumpCode/BitStreamNew';
 import HiveApp from './coinhive/HiveApp';
+import SurveyNew from './SurveySubComponents/SurveyNew';
+import SurveyDashboard from './SurveySubComponents/dashboard';
 
 const networkInterface = createNetworkInterface({
   uri: '/graphql',
@@ -74,6 +76,8 @@ class App extends Component {
                 <Route path="/lyrical" component={LyricalApp} />
                 <Route path="/bitpump/new" component={BitStreamNew} />
                 <Route path="/hiveapp" component={HiveApp} />
+                <Route path="/surveys/new" component={SurveyNew} />
+                <Route path="/surveys" component={SurveyDashboard} />
                 <Route path="/" component={Landing} />
               </Switch>
             </div>
