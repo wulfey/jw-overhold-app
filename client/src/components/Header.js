@@ -53,15 +53,7 @@ class Header extends Component {
           >
             JW Overhold
           </Link>
-          <ul className="right hide-on-med-and-down">
-            <li>
-              <Link to="/surveys">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/surveys/new">New</Link>
-            </li>
-            {this.renderContent()}
-          </ul>
+          <ul className="right hide-on-med-and-down">{this.renderContent()}</ul>
         </div>
       </nav>
     );

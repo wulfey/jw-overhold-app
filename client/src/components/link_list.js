@@ -15,7 +15,7 @@ class LinkList extends Component {
     switch (this.state.selection) {
       case 'BasicApps':
         return (
-          <div className="left">
+          <div className="left" style={{ marginBottom: '5%' }}>
             {this.renderSubAppButton('Books App')}
             {this.renderSubAppButton('TicTac App')}
             {this.renderSubAppButton('Todo App')}
@@ -23,23 +23,29 @@ class LinkList extends Component {
         );
       case 'GraphQLApps':
         return (
-          <div className="left">
+          <div className="left" style={{ marginBottom: '5%' }}>
             {this.renderSubAppButton('Posts App')}
             {this.renderSubAppButton('Lyrical App')}
           </div>
         );
       case 'SearchApps':
         return (
-          <div className="left">
+          <div className="left" style={{ marginBottom: '5%' }}>
             {this.renderSubAppButton('Video Search App')}
             {this.renderSubAppButton('Weather App')}
           </div>
         );
       case 'CryptoApps':
         return (
-          <div className="left">
+          <div className="left" style={{ marginBottom: '5%' }}>
             {this.renderSubAppButton('Bitpump App')}
             {this.renderSubAppButton('HiveMiner App')}
+          </div>
+        );
+      case 'MailerApps':
+        return (
+          <div className="left" style={{ marginBottom: '5%' }}>
+            {this.renderSubAppButton('Survey App')}
           </div>
         );
       default:
@@ -47,9 +53,13 @@ class LinkList extends Component {
     }
   }
 
-  myColor(position) {
-    if (this.state.selection === position || this.state.subApp === position) {
-      return `cyan`;
+  myColor(position, subApp) {
+    if (this.state.selection === position) {
+      return `red`;
+    } else if (this.state.subApp === position) {
+      return 'purple';
+    } else if (subApp) {
+      return 'teal';
     }
     return `amber`;
   }
@@ -74,6 +84,8 @@ class LinkList extends Component {
         return '/bitpump/new';
       case 'HiveMiner App':
         return '/hiveapp';
+      case 'Survey App':
+        return '/surveys';
       default:
         return '/';
     }
@@ -83,7 +95,8 @@ class LinkList extends Component {
     return (
       <Link
         className={`waves-effect waves-light ${this.myColor(
-          name
+          name,
+          true
         )} darken-4 btn`}
         to={this.getRoute(name)}
         onClick={() => {
@@ -99,7 +112,8 @@ class LinkList extends Component {
     return (
       <button
         className={`waves-effect waves-light ${this.myColor(
-          name
+          name,
+          false
         )} darken-4 btn`}
         onClick={() => {
           this.setState({ selection: name });
@@ -120,7 +134,8 @@ class LinkList extends Component {
         <div className="left">
           <Link
             className={`waves-effect waves-light ${this.myColor(
-              ''
+              '',
+              false
             )} darken-4 btn`}
             onClick={() => {
               this.setState({ selection: '' });
@@ -134,9 +149,9 @@ class LinkList extends Component {
           {this.renderButton('SearchApps')}
           {this.renderButton('GraphQLApps')}
           {this.renderButton('CryptoApps')}
+          {this.renderButton('MailerApps')}
+          {this.renderSubTab()}
         </div>
-
-        {this.renderSubTab()}
       </div>
       // sub tab
     );

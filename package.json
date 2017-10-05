@@ -11,8 +11,11 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "dev":
+      "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "webhook": "./sendgrid_webhook.sh"
   },
   "author": "jason wolfe",
   "repository": "https://github.com/wulfey/jw-overhold-app.git",
@@ -28,6 +31,7 @@
     "express-graphql": "^0.6.11",
     "graphql": "^0.11.3",
     "jshint": "^2.9.5",
+    "localtunnel": "^1.8.3",
     "mongoose": "^4.11.11",
     "node.bittrex.api": "^0.6.6",
     "nodemon": "^1.12.0",

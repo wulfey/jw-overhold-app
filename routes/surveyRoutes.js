@@ -73,7 +73,7 @@ module.exports = app => {
       .compact()
       .uniqBy('email', 'surveyId')
       .each(({ surveyId, email, choice }) => {
-        if (choice === 'yes') {
+        if (choice === 'yes' || choice === 'Yes') {
           console.log(`incrementing yes:   ${choice}`);
           Survey.updateOne(
             {
