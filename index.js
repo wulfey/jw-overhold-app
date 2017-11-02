@@ -6,6 +6,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const expressGraphQL = require('express-graphql');
 const cors = require('cors');
+
 const keys = require('./config/keys');
 const models = require('./models');
 const schema = require('./schema/schema');

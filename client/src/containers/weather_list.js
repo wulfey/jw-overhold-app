@@ -64,7 +64,7 @@ function mapStateToProps(state) {
     weather: state.weather
   };
 }
-
+    
 // function mapStateToProps({weather}){
 //     return {
 //         weather
